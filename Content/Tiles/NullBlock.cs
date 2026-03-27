@@ -9,7 +9,7 @@ namespace StructureHelper.Content.Tiles
 			On_WorldGen.SlopeTile += SlopeTileHook;
 		}
 
-		private static bool SlopeTileHook(On_WorldGen.orig_SlopeTile orig, int i, int j, int slope, bool noEffects)
+		private static bool SlopeTileHook(On_WorldGen.orig_SlopeTile orig, int i, int j, int slope, bool noEffects, bool quiet)
 		{
 			bool isNeighborNull = false;
 
@@ -21,7 +21,7 @@ namespace StructureHelper.Content.Tiles
 			if (isNeighborNull)
 				return false;
 
-			return orig(i, j, slope, noEffects);
+			return orig(i, j, slope, noEffects, quiet);
 		}
 	}
 

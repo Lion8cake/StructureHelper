@@ -123,7 +123,7 @@ namespace StructureHelper.Util
 
 		public void Load(Mod mod)
 		{
-			On_Main.CheckMonoliths += DrawQueuedPreview;
+			On_Cloud.UpdateCloudParallax += DrawQueuedPreview;
 		}
 
 		public void Unload()
@@ -135,7 +135,7 @@ namespace StructureHelper.Util
 		/// When the opportunity in the rendering cycle arises, render out all of the queued previews
 		/// </summary>
 		/// <param name="orig"></param>
-		private void DrawQueuedPreview(On_Main.orig_CheckMonoliths orig)
+		private void DrawQueuedPreview(On_Cloud.orig_UpdateCloudParallax orig)
 		{
 			foreach (LegacyStructurePreview queued in queue)
 			{
