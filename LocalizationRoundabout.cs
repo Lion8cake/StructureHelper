@@ -20,7 +20,7 @@ namespace StructureHelper
 		public static void SetDefault(this LocalizedText text, string value)
 		{
 #if DEBUG
-			PropertyInfo valueProp = typeof(LocalizedText).GetProperty("Value", BindingFlags.Public | BindingFlags.Instance);
+			FieldInfo valueProp = typeof(LocalizedText).GetField("_value", BindingFlags.NonPublic | BindingFlags.Instance);
 
 			LanguageManager.Instance.GetOrRegister(text.Key, () => value);
 			valueProp.SetValue(text, value);
